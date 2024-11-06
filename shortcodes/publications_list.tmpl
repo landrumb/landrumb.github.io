@@ -1,0 +1,14 @@
+
+% for p in publications:
+<div class="publication">
+    <p>
+      <strong>${p['title']}</strong><br>
+      <i>${p['authors']}</i><br>
+      <strong>${p['journal_short']}</strong><br>
+      <button onclick="copyBibtex(`${p['bibtex']}`)">Copy BibTeX</button>
+      <a href="${p['pdf']}">
+        <button>PDF</button>
+      </a>
+    </p>
+  </div>
+% endfor

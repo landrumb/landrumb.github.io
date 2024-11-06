@@ -1,0 +1,15 @@
+<div class="publication">
+    <h3>{{ title }}</h3>
+    <p><strong>Authors:</strong> {{ authors }}</p>
+    <p><strong>Year:</strong> {{ year }}</p>
+    <p><strong>Journal:</strong> {{ journal }}</p>
+    <p><strong>Abstract:</strong> {{ abstract }}</p>
+    <p>
+      <a href="{{ url }}" target="_blank">Read more</a>
+      {% if pdf_url %}
+        <a href="{{ pdf_url }}" target="_blank" class="btn">Download PDF</a>
+      {% endif %}
+    </p>
+    <button onclick="copyBibtex('{{ bibtex | escapejs }}')">Copy BibTeX</button>
+  </div>
+  

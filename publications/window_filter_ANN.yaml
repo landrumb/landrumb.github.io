@@ -1,0 +1,17 @@
+title: "Approximate Nearest Neighbor Search with Window Filters"
+authors: "Joshua Engels, Benjamin Landrum, Shangdi Yu, Laxman Dhulipala, Julian Shun"
+year: 2024
+journal: "Proceedings of the 41st International Conference on Machine Learning"
+abstract: "We define and investigate the problem of c-approximate window search: approximate nearest neighbor search where each point in the dataset has a numeric label, and the goal is to find nearest neighbors to queries within arbitrary label ranges. Many semantic search problems, such as image and document search with timestamp filters, or product search with cost filters, are natural examples of this problem. We propose and theoretically analyze a modular tree-based framework for transforming an index that solves the traditional c-approximate nearest neighbor problem into a data structure that solves window search. On standard nearest neighbor benchmark datasets equipped with random label values, adversarially constructed embeddings, and image search embeddings with real timestamps, we obtain up to a 75× speedup over existing solutions at the same level of recall."
+url: "https://proceedings.mlr.press/v235/engels24a.html"
+pdf: "/pdfs/Window_Filtered_ANN_ICML.pdf"
+journal_short: "ICML 2024"
+bibtex: |
+  @inproceedings{engels2024approximate,
+    title={Approximate Nearest Neighbor Search with Window Filters},
+    author={Engels, Joshua and Landrum, Benjamin and Yu, Shangdi and Dhulipala, Laxman and Shun, Julian},
+    booktitle={Proceedings of the 41st International Conference on Machine Learning},
+    pages={12469--12490},
+    year={2024},
+    organization={PMLR}
+  }
