@@ -22,7 +22,7 @@ BLOG_AUTHOR = "Ben Landrum"  # (translatable)
 BLOG_TITLE = "Ben Landrum"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-# SITE_URL = "https://landrumb.github.io/"
+SITE_URL = "https:/ben-landrum.com/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "https://landrumb.github.io/"
