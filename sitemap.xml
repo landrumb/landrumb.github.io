@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https:///ben-landrum.com/</loc>
-  <lastmod>2025-01-29T23:17:00Z</lastmod>
+  <lastmod>2025-01-29T23:22:00Z</lastmod>
  </url>
  <url>
   <loc>https:///ben-landrum.com/2025/</loc>
@@ -15,7 +15,7 @@
  </url>
  <url>
   <loc>https:///ben-landrum.com/archive.html</loc>
-  <lastmod>2025-01-29T23:17:00Z</lastmod>
+  <lastmod>2025-01-29T23:22:00Z</lastmod>
  </url>
  <url>
   <loc>https:///ben-landrum.com/blog/</loc>
@@ -40,5 +40,13 @@
  <url>
   <loc>https:///ben-landrum.com/posts/vamana-semantle/index.src.html</loc>
   <lastmod>2025-01-29T23:17:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https:///ben-landrum.com/vamana-semantle/</loc>
+  <lastmod>2025-01-29T23:22:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https:///ben-landrum.com/vamana-semantle/index.src.html</loc>
+  <lastmod>2025-01-29T23:22:00Z</lastmod>
  </url>
 </urlset>
