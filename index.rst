@@ -18,5 +18,6 @@ I completed a dual BS in Mathematics and Computer Science and a MS in Computer S
 
 The summer of 2024, I was fortunate to intern at Microsoft Research India, where I worked with `Ravishankar Krishnaswamy <https://rakri.github.io/>`_, `Kiran Shiragur <https://sites.google.com/view/kiran-shiragur>`_ and others on `DiskANN <https://www.microsoft.com/en-us/research/project/project-akupara-approximate-nearest-neighbor-search-for-large-scale-semantic-search/>`_.
 
+`Vamana x Semantle </vamana-semantle/>`_
 
 :sc:`{{% publications_list %}}`
