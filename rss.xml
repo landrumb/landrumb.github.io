@@ -1,2 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ben Landrum</title><link>https:///ben-landrum.com/</link><description>A PhD student at Cornell working on vector search</description><atom:link href="https:///ben-landrum.com/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2025 &lt;a href="mailto:8enlandrum@gmail.com"&gt;Ben Landrum&lt;/a&gt; </copyright><lastBuildDate>Wed, 29 Jan 2025 23:22:29 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs></channel></rss>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ben Landrum</title><link>https:///ben-landrum.com/</link><description>A PhD student at Cornell working on vector search</description><atom:link href="https:///ben-landrum.com/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2025 &lt;a href="mailto:8enlandrum@gmail.com"&gt;Ben Landrum&lt;/a&gt; </copyright><lastBuildDate>Fri, 31 Jan 2025 18:14:50 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>search-graph-semantle</title><link>https:///ben-landrum.com/posts/search-graph-semantle/</link><dc:creator>Ben Landrum</dc:creator><description>&lt;p&gt;Below is a clone of the game &lt;a class="reference external" href="https://semantle.com/"&gt;Semantle&lt;/a&gt;, my favorite of the countless Wordle variants that cropped up during its heyday. Much like Wordle, it's a word-guessing game where you try to find the secret in as few guesses as possible, but instead of getting feedback on the accuracy of letters in the word, you get the &lt;em&gt;semantic similarity&lt;/em&gt; between your guess and the secret.&lt;/p&gt;
+&lt;p&gt;Mechanically, semantic similarity is computed here by the cosine similarity between embeddings of the guess and the secret. The embeddings used here (and in the real Semantle) are &lt;a class="reference external" href="https://code.google.com/archive/p/word2vec/"&gt;word2vec-google-news-300&lt;/a&gt; embeddings, which are trained on a large corpus of Google News articles. I've restricted the vocabulary to the top 50k words by frequency, and within that set filtered to only lowercase words and phrases.&lt;/p&gt;
+&lt;section id="why-this-is-interesting"&gt;
+&lt;h2&gt;Why this is interesting&lt;/h2&gt;
+&lt;p&gt;High-dimensional vector search is difficult to visualize, reason intuitively about, or explain to a non-technical audience. Semantle exists as an example of people doing vector search. You have some preconception of the layout of the dataset (i.e. you know what words mean), choose vectors to compare to some query, and get feedback in terms of the similarity between your guesses and the secret. These are essentially the same operations done by computers solving the same problem: indexing the dataset and comparing vectors to a query.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section id="how-to-play"&gt;
+&lt;h2&gt;How to play&lt;/h2&gt;
+&lt;p&gt;This version of Semantle has essentially the same interface as the original, which is played by entering guesses in the text box until you find the secret, at which point you win and the game is over. The only major difference is that clicking on a guess will show you the neighbors of that word in a search graph built over the embeddings. If you click a neighbor, it will guess that word for you.&lt;/p&gt;
+&lt;div id="backend-status" style="font-weight: bold; padding: 10px; color: blue; background: lightgrey; width: 200px; text-align: center;"&gt;Checking backend status...&lt;/div&gt;
+
+&lt;script&gt;
+    async function checkBackendStatus() {
+        let statusDiv = document.getElementById("backend-status");
+        statusDiv.textContent = "Warming up...";
+        statusDiv.style.color = "orange";
+
+        try {
+            let res = await fetch("https://semantle-graph.onrender.com/healthcheck", { method: "GET" });
+
+            if (res.ok) {
+                statusDiv.textContent = "Warm";
+                statusDiv.style.color = "green";
+            } else {
+                statusDiv.textContent = "Down";
+                statusDiv.style.color = "red";
+            }
+        } catch (e) {
+            statusDiv.textContent = "Down";
+            statusDiv.style.color = "red";
+        }
+    }
+
+    window.addEventListener("load", checkBackendStatus);
+    statusDiv.addEventListener("click", checkBackendStatus);
+&lt;/script&gt;&lt;p&gt;The above should be checking for the status of the backend, which takes a while to warm up after a period of inactivity. If it's showing "Down" in red, send me an email and I will try to fix it.&lt;/p&gt;
+&lt;style&gt;
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .iframe-container {
+        flex-grow: 1;
+        width: 100%;
+        border: none;
+    }
+&lt;/style&gt;
+
+&lt;div class="wrapper"&gt;
+    &lt;iframe class="iframe-container" src="https:///ben-landrum.com/assets/html/vamana-semantle.html"&gt;&lt;/iframe&gt;
+&lt;/div&gt;&lt;/section&gt;</description><guid>https:///ben-landrum.com/posts/search-graph-semantle/</guid><pubDate>Thu, 30 Jan 2025 05:00:00 GMT</pubDate></item></channel></rss>
