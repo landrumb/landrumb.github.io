@@ -1,0 +1,19 @@
+{% extends "bootstrap4.tmpl" %}
+
+{% block extra_head %}
+<style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    input, button { padding: 10px; margin: 5px; }
+    .guess { margin: 10px 0; cursor: pointer; color: black; text-decoration: underline; }
+    .latest-guess { font-weight: bold; color: red; }
+    .highlight-container { background-color: lightgray; padding: 10px; margin: 10px auto; display: inline-block; }
+    .neighbors { margin-top: 10px; }
+    .neighbor { cursor: pointer; text-decoration: underline; display: inline-block; margin: 5px; }
+    .neighbor.guessed { color: red; }
+    .neighbor.not-guessed { color: green; }
+</style>
+{% endblock %}
+
+{% block content %}
+{{ post.text() | safe }}
+{% endblock %}
