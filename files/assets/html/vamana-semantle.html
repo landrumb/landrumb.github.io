@@ -26,11 +26,13 @@
     <div id="guesses"></div>
 
     <script>
-        window.API_BASE_URL = "https://semantle-graph.onrender.com";
+        window.API_BASE_URL = "http://127.0.0.1:8000";
     </script>
 
     <script>
         let targetWord = "";
+        let vocab = [];
+        let bfs_distances = [];
         let guesses = [];
         // Cache for storing similarity data: guessDataCache[word] = { similarity, rank }
         let guessDataCache = {};
@@ -57,9 +59,10 @@
         }
 
         async function startGame() {
-            let res = await fetch(`${window.API_BASE_URL}/get_vocab`);
+            let res = await fetch(`${window.API_BASE_URL}/get_vocab_and_distances`);
             let data = await res.json();
-            let vocab = data.vocab;
+            vocab = data.vocab;
+            bfs_distances = data.bfs_distances;
             targetWord = vocab[Math.floor(Math.random() * vocab.length)];
             guesses = [];
             guessDataCache = {};
@@ -188,9 +191,10 @@
         }
 
         function renderNeighbors(word, neighborList) {
+            let steps = bfs_distances[vocab.indexOf(word)];
             // Render immediately
             document.getElementById("neighbors").innerHTML =
-                `<div class="neighbors">Neighbors of <b>${word}</b>: ` +
+                `<div class="neighbors">Neighbors of <b>${word}</b> (level ${steps}): ` +
                 neighborList.map(n => `<span class="neighbor" id="neighbor-${n}" onclick="makeGuess('${n}')">${n}</span>`).join(" ") +
                 `</div>`;
             refreshNeighborColors();
