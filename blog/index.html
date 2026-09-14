@@ -72,7 +72,15 @@ bg-light
     <p>Below is a clone of the game <a class="reference external" href="https://semantle.com/">Semantle</a>, my favorite of the countless Wordle variants that cropped up during its heyday. Much like Wordle, it's a word-guessing game where you try to find the secret in as few guesses as possible, but instead of getting feedback on the accuracy of letters in the word, you get the <em>semantic similarity</em> between your guess and the secret.</p>
 <p>Mechanically, semantic similarity is computed here by the cosine similarity between embeddings of the guess and the secret. The embeddings used here (and in the real Semantle) are <a class="reference external" href="https://code.google.com/archive/p/word2vec/">word2vec-google-news-300</a> embeddings, which are trained on a large corpus of Google News articles. I've restricted the vocabulary to the top 50k words by frequency, and within that set filtered to only lowercase words and phrases.</p>
 <section id="why-this-is-interesting"><h2>Why this is interesting</h2>
-<p>High-dimensional vector search is difficult to visualize, reason intuitively about, or explain to a non-technical audience. Semantle exists as an example of people doing vector search. You have some preconception of the layout of the dataset (i.e. you know what words mean), choose vectors to compare to some query, and get feedback in terms of the similarity between your guesses and the secret. These are essentially the same operations done by computers solving the same problem: indexing the dataset and comparing vectors to a query.</p>
+<p>High-dimensional vector search is difficult to visualize, reason intuitively about, or explain to a non-technical audience. Semantle exists as an example of people doing vector search. You have some preconception of the layout of the dataset (i.e. you know what words mean), and you can choose vectors (words) to compare to some query (the secret word). Hopefully, by playing this game and exploring the associated search graph, you can get a better sense of how vector search works.</p>
+</section><section id="how-search-graphs-work"><h2>How search graphs work</h2>
+<p>For those unfamiliar, a <em>graph</em> is a general way of representing relationships between collections of things. The things in question are <em>nodes</em> (<em>vertices</em> is also common), and if thing <em>A</em> and thing <em>B</em> have a relationship we want to record in the graph, they have an <em>edge</em> between them in the graph. Classic examples include:</p>
+<ul class="simple">
+<li><p>Social networks, where people are nodes and friendships are edges</p></li>
+<li><p>Road networks, where intersections are nodes and roads are edges</p></li>
+<li><p>The internet, where webpages are nodes and links are edges</p></li>
+</ul>
+<p>Imagine you're on a road trip, and you know the general direction of the city you're trying to get to, but you don't have turn-by-turn directions. It's very natural to imagine that every time you have to choose between two roads on your trip, you look at the signage, (I'm imagining a highway sign that tells you what towns are at a given exit) and you pick whichever road names the city closer to your destination. If you keep doing this every time you pick between two cities, you'll eventually get to a sign that says the city you want, and you'll take that turn to end your journey. This is called a <em>greedy</em> search.</p>
 </section><section id="how-to-play"><h2>How to play</h2>
 <p>This version of Semantle has essentially the same interface as the original, which is played by entering guesses in the text box until you find the secret, at which point you win and the game is over. The only major difference is that clicking on a guess will show you the neighbors of that word in a search graph built over the embeddings. If you click a neighbor, it will guess that word for you.</p>
 <div id="backend-status" style="font-weight: bold; padding: 10px; color: blue; background: lightgrey; width: 200px; text-align: center;">Checking backend status...</div>
@@ -132,7 +140,7 @@ bg-light
         <!--End of body content-->
 
         <footer id="footer">
-            Contents © 2025         <a href="mailto:8enlandrum@gmail.com">Ben Landrum</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2026         <a href="mailto:8enlandrum@gmail.com">Ben Landrum</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
             
         </footer>

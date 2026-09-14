@@ -10,7 +10,19 @@ Mechanically, semantic similarity is computed here by the cosine similarity betw
 Why this is interesting
 -----------------------
 
-High-dimensional vector search is difficult to visualize, reason intuitively about, or explain to a non-technical audience. Semantle exists as an example of people doing vector search. You have some preconception of the layout of the dataset (i.e. you know what words mean), choose vectors to compare to some query, and get feedback in terms of the similarity between your guesses and the secret. These are essentially the same operations done by computers solving the same problem: indexing the dataset and comparing vectors to a query.
+High-dimensional vector search is difficult to visualize, reason intuitively about, or explain to a non-technical audience. Semantle exists as an example of people doing vector search. You have some preconception of the layout of the dataset (i.e. you know what words mean), and you can choose vectors (words) to compare to some query (the secret word). Hopefully, by playing this game and exploring the associated search graph, you can get a better sense of how vector search works.
+
+How search graphs work
+----------------------
+
+For those unfamiliar, a *graph* is a general way of representing relationships between collections of things. The things in question are *nodes* (*vertices* is also common), and if thing *A* and thing *B* have a relationship we want to record in the graph, they have an *edge* between them in the graph. Classic examples include:
+
+* Social networks, where people are nodes and friendships are edges
+* Road networks, where intersections are nodes and roads are edges
+* The internet, where webpages are nodes and links are edges
+
+Imagine you're on a road trip, and you know the general direction of the city you're trying to get to, but you don't have turn-by-turn directions. It's very natural to imagine that every time you have to choose between two roads on your trip, you look at the signage, (I'm imagining a highway sign that tells you what towns are at a given exit) and you pick whichever road names the city closer to your destination. If you keep doing this every time you pick between two cities, you'll eventually get to a sign that says the city you want, and you'll take that turn to end your journey. This is called a *greedy* search. 
+
 
 How to play
 -----------
