@@ -51,6 +51,7 @@
     function loadState() {
       targetWord = localStorage.getItem("targetWord") || "";
       guesses = JSON.parse(localStorage.getItem("guesses")) || [];
+      guesses = guesses.map((g, i) => ({ ...g, index: g.index || i + 1 }));
       guessDataCache = JSON.parse(localStorage.getItem("guessDataCache")) || {};
       neighborsCache = JSON.parse(localStorage.getItem("neighborsCache")) || {};
       if (!targetWord) {
@@ -110,6 +111,8 @@
     async function makeGuess(word = null) {
       let guessWord = word || document.getElementById("guessInput").value.toLowerCase().trim();
       if (!guessWord) return alert("Enter a word!");
+      
+      document.getElementById("guessInput").value = ""; // clear input
       if (guesses.some(g => g.word === guessWord)) return alert("You already guessed this word!");
 
       let similarity, rank;
@@ -142,9 +145,7 @@
         }
       }
 
-      guesses.push({ word: guessWord, similarity, rank });
-      // Order guesses by descending similarity.
-      guesses.sort((a, b) => b.similarity - a.similarity);
+      guesses.push({ word: guessWord, similarity, rank, index: guesses.length + 1 });
       saveState();
       renderGuesses();
       refreshNeighborColors();
@@ -158,21 +159,24 @@
 
     // Group guesses using the cached rank.
     function renderGuesses() {
+      // Sort the display without changing each guess's chronological index.
+      let sortedGuesses = guesses.filter(g => g.word !== targetWord)
+        .sort((a, b) => b.similarity - a.similarity);
       // Top guesses: rank between 1 and 1000 (excluding 0 which is the target).
-      let topGuesses = guesses.filter(g => g.rank > 0 && g.rank <= 1000);
-      let otherGuesses = guesses.filter(g => g.rank <= 0 || g.rank > 1000);
+      let topGuesses = sortedGuesses.filter(g => g.rank > 0 && g.rank <= 1000);
+      let otherGuesses = sortedGuesses.filter(g => g.rank <= 0 || g.rank > 1000);
       let highlightedHtml = topGuesses.length
         ? `<div class="highlight-container">` +
-          topGuesses.map((g, i) =>
+          topGuesses.map(g =>
             `<div class="guess" onclick="fetchNeighbors('${g.word}')">
-              ${i + 1}. <b>${g.word}</b> - Similarity: ${g.similarity.toFixed(4)} (Rank: ${g.rank})
+              ${g.index}. <b>${g.word}</b> - Similarity: ${g.similarity.toFixed(4)} (Rank: ${g.rank})
             </div>`
           ).join("") +
           `</div>`
         : "";
-      let otherHtml = otherGuesses.map((g, i) =>
+      let otherHtml = otherGuesses.map(g =>
         `<div class="guess" onclick="fetchNeighbors('${g.word}')">
-          ${i + 1 + topGuesses.length}. <b>${g.word}</b> - Similarity: ${g.similarity.toFixed(4)}
+          ${g.index}. <b>${g.word}</b> - Similarity: ${g.similarity.toFixed(4)}
         </div>`
       ).join("");
 
