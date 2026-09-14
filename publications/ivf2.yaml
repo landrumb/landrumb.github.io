@@ -1,0 +1,18 @@
+title: 'IVF² Index: Fusing Classic and Spatial Inverted Indices for Fast Filtered ANNS'
+authors: Ben Landrum, Magdalen Dobson Manohar, Mazin Karjikar, Laxman Dhulipala
+year: 2025
+journal: The 1st Workshop on Vector Databases
+abstract: An index combining classic inverted files over metadata labels with spatial inverted indices for fast filtered approximate nearest neighbor search.
+url: https://openreview.net/forum?id=kXw8E3xT7O
+pdf: https://openreview.net/pdf?id=kXw8E3xT7O
+journal_short: VecDB @ ICML 2025 (Oral)
+bibtex: |
+  @inproceedings{landrum2025ivf2,
+    title={{IVF}$^{2}$ Index: Fusing Classic and Spatial Inverted Indices for Fast Filtered {ANNS}},
+    author={Landrum, Ben and Dobson Manohar, Magdalen and Karjikar, Mazin and Dhulipala, Laxman},
+    booktitle={The 1st Workshop on Vector Databases},
+    year={2025},
+    month=jul,
+    address={Vancouver, Canada},
+    url={https://openreview.net/forum?id=kXw8E3xT7O}
+  }

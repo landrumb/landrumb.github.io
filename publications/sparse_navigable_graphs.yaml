@@ -1,0 +1,25 @@
+title: Efficiently Constructing Sparse Navigable Graphs
+authors: Alex Conway, Laxman Dhulipala, Martin Farach-Colton, Rob Johnson, Ben Landrum, Christopher Musco, Yarin Shechter, Torsten Suel, Richard Wen
+year: 2026
+journal: Proceedings of the 2026 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)
+abstract: Algorithms with provable guarantees for constructing sparse navigable search graphs, with near-quadratic construction time and matching conditional lower bounds.
+url: https://doi.org/10.1137/1.9781611978971.59
+pdf: https://arxiv.org/pdf/2507.13296
+journal_short: SODA 2026
+bibtex: |
+  @inproceedings{conway2026efficiently,
+    title={Efficiently Constructing Sparse Navigable Graphs},
+    author={Conway, Alex and Dhulipala, Laxman and Farach-Colton, Martin and Johnson, Rob and Landrum, Ben and Musco, Christopher and Shechter, Yarin and Suel, Torsten and Wen, Richard},
+    booktitle={Proceedings of the 2026 Annual ACM-SIAM Symposium on Discrete Algorithms ({SODA})},
+    editor={Larsen, Kasper Green and Saha, Barna},
+    pages={1631--1665},
+    year={2026},
+    month=jan,
+    publisher={Society for Industrial and Applied Mathematics},
+    isbn={978-1-61197-897-1},
+    doi={10.1137/1.9781611978971.59},
+    url={https://doi.org/10.1137/1.9781611978971.59},
+    eprint={2507.13296},
+    archivePrefix={arXiv},
+    primaryClass={cs.DS}
+  }

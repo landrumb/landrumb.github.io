@@ -1,0 +1,18 @@
+title: α-Reachable Graphs for Multi-vector Nearest Neighbor Search
+authors: Siddharth Gollapudi, Ravishankar Krishnaswamy, Ben Landrum, Nikhil Rao, Kirankumar Shiragur, Sandeep Silwal, Harsh Wardhan
+year: 2025
+journal: The 1st Workshop on Vector Databases
+abstract: A theoretical model and practical graph-based algorithms for multi-vector nearest neighbor search with non-metric similarities, including Chamfer similarity.
+url: https://openreview.net/forum?id=v8jSxLHEE9
+pdf: https://openreview.net/attachment?id=v8jSxLHEE9&name=pdf
+journal_short: VecDB @ ICML 2025 (Oral)
+bibtex: |
+  @inproceedings{gollapudi2025alphareachable,
+    title={{$\alpha$}-Reachable Graphs for Multi-vector Nearest Neighbor Search},
+    author={Gollapudi, Siddharth and Krishnaswamy, Ravishankar and Landrum, Ben and Rao, Nikhil and Shiragur, Kirankumar and Silwal, Sandeep and Wardhan, Harsh},
+    booktitle={The 1st Workshop on Vector Databases},
+    year={2025},
+    month=jul,
+    address={Vancouver, Canada},
+    url={https://openreview.net/forum?id=v8jSxLHEE9}
+  }
