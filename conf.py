@@ -1190,7 +1190,7 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 
 # Modify the number of Post per Index Page
 # Defaults to 10
-# INDEX_DISPLAY_POST_COUNT = 10
+INDEX_DISPLAY_POST_COUNT = 10
 
 # By default, Nikola generates RSS files for the website and for tags, and
 # links to it.  Set this to False to disable everything RSS-related.
@@ -1309,15 +1309,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 # An example re is the following:
 # '.*\/(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)-(?P<title>.*)\.rst'
 # (Note the '.*\/' in the beginning -- matches source paths relative to conf.py)
-# FILE_METADATA_REGEXP = None
+FILE_METADATA_REGEXP = None
 
 # Should titles fetched from file metadata be unslugified (made prettier?)
-# FILE_METADATA_UNSLUGIFY_TITLES = True
+FILE_METADATA_UNSLUGIFY_TITLES = True
 
 # If enabled, extract metadata from docinfo fields in reST documents.
 # If your text files start with a level 1 heading, it will be treated as the
 # document title and will be removed from the text.
-# USE_REST_DOCINFO_METADATA = False
+USE_REST_DOCINFO_METADATA = False
 
 
 # If enabled, hide docinfo fields in reST document output
@@ -1375,7 +1375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 # USE_BUNDLES = True
 
 # Plugins you don't want to use. Be careful :-)
-# DISABLED_PLUGINS = ["render_galleries"]
+DISABLED_PLUGINS = ["robots"]
 
 # Special settings to disable only parts of the indexes plugin.
 # Use with care.
